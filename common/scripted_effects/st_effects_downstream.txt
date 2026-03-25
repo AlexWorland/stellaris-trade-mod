@@ -32,17 +32,17 @@ st_buy_energy_chunk = {
 	# Full chunk: 200 energy for 236 TV
 	if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 200 }
+			resource_stockpile_compare = { resource = trade value >= 200 }
 		}
-		add_resource = { trade_value = -200 }
+		add_resource = { trade = -200 }
 		add_resource = { energy = 200 }
 	}
 	# Half chunk: 100 energy for 118 TV
 	else_if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 100 }
+			resource_stockpile_compare = { resource = trade value >= 100 }
 		}
-		add_resource = { trade_value = -100 }
+		add_resource = { trade = -100 }
 		add_resource = { energy = 100 }
 	}
 }
@@ -52,17 +52,17 @@ st_buy_minerals_chunk = {
 	# Full chunk: 200 minerals for 236 TV
 	if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 200 }
+			resource_stockpile_compare = { resource = trade value >= 200 }
 		}
-		add_resource = { trade_value = -200 }
+		add_resource = { trade = -200 }
 		add_resource = { minerals = 200 }
 	}
 	# Half chunk: 100 minerals for 118 TV
 	else_if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 100 }
+			resource_stockpile_compare = { resource = trade value >= 100 }
 		}
-		add_resource = { trade_value = -100 }
+		add_resource = { trade = -100 }
 		add_resource = { minerals = 100 }
 	}
 }
@@ -72,17 +72,17 @@ st_buy_food_chunk = {
 	# Full chunk: 200 food for 236 TV
 	if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 200 }
+			resource_stockpile_compare = { resource = trade value >= 200 }
 		}
-		add_resource = { trade_value = -200 }
+		add_resource = { trade = -200 }
 		add_resource = { food = 200 }
 	}
 	# Half chunk: 100 food for 118 TV
 	else_if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 100 }
+			resource_stockpile_compare = { resource = trade value >= 100 }
 		}
-		add_resource = { trade_value = -100 }
+		add_resource = { trade = -100 }
 		add_resource = { food = 100 }
 	}
 }
@@ -92,17 +92,17 @@ st_buy_consumer_goods_chunk = {
 	# Full chunk: 100 consumer goods for 235 TV
 	if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 200 }
+			resource_stockpile_compare = { resource = trade value >= 200 }
 		}
-		add_resource = { trade_value = -200 }
+		add_resource = { trade = -200 }
 		add_resource = { consumer_goods = 100 }
 	}
 	# Half chunk: 50 consumer goods for 118 TV
 	else_if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 100 }
+			resource_stockpile_compare = { resource = trade value >= 100 }
 		}
-		add_resource = { trade_value = -100 }
+		add_resource = { trade = -100 }
 		add_resource = { consumer_goods = 50 }
 	}
 }
@@ -112,17 +112,17 @@ st_buy_alloys_chunk = {
 	# Full chunk: 50 alloys for 236 TV
 	if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 200 }
+			resource_stockpile_compare = { resource = trade value >= 200 }
 		}
-		add_resource = { trade_value = -200 }
+		add_resource = { trade = -200 }
 		add_resource = { alloys = 50 }
 	}
 	# Half chunk: 25 alloys for 118 TV
 	else_if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 100 }
+			resource_stockpile_compare = { resource = trade value >= 100 }
 		}
-		add_resource = { trade_value = -100 }
+		add_resource = { trade = -100 }
 		add_resource = { alloys = 25 }
 	}
 }
@@ -140,7 +140,7 @@ st_buy_cycle = {
 	# Only proceed if there is enough Trade Value to buy at least a half chunk.
 	if = {
 		limit = {
-			resource_stockpile_compare = { resource = trade_value value >= 100 }
+			resource_stockpile_compare = { resource = trade value >= 100 }
 		}
 
 		# ── Band: Critical (gap > 2000) ──

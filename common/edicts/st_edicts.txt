@@ -1,13 +1,14 @@
-# Surplus Trade — Country Decisions
-# System toggle (enable/disable) + 15 config cycling decisions (min/desired/max × 5 resources)
+# Surplus Trade — Edicts
+# System toggle (enable/disable) + 15 config cycling edicts (min/desired/max x 5 resources)
+# All edicts are instant (length = 0) with no cost.
 
 # ============================================================
 # System Toggle
 # ============================================================
 
 st_enable_system = {
-	title = st_enable_system_title
-	desc = st_enable_system_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -25,14 +26,14 @@ st_enable_system = {
 		country_event = { id = st_events.10 }
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_disable_system = {
-	title = st_disable_system_title
-	desc = st_disable_system_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -50,8 +51,8 @@ st_disable_system = {
 		country_event = { id = st_events.11 }
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
@@ -60,8 +61,8 @@ st_disable_system = {
 # ============================================================
 
 st_config_energy_min = {
-	title = st_config_energy_min_title
-	desc = st_config_energy_min_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -78,14 +79,14 @@ st_config_energy_min = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_energy_desired = {
-	title = st_config_energy_desired_title
-	desc = st_config_energy_desired_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -102,14 +103,14 @@ st_config_energy_desired = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_energy_max = {
-	title = st_config_energy_max_title
-	desc = st_config_energy_max_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -126,8 +127,8 @@ st_config_energy_max = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
@@ -136,8 +137,8 @@ st_config_energy_max = {
 # ============================================================
 
 st_config_minerals_min = {
-	title = st_config_minerals_min_title
-	desc = st_config_minerals_min_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -154,14 +155,14 @@ st_config_minerals_min = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_minerals_desired = {
-	title = st_config_minerals_desired_title
-	desc = st_config_minerals_desired_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -178,14 +179,14 @@ st_config_minerals_desired = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_minerals_max = {
-	title = st_config_minerals_max_title
-	desc = st_config_minerals_max_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -202,8 +203,8 @@ st_config_minerals_max = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
@@ -212,8 +213,8 @@ st_config_minerals_max = {
 # ============================================================
 
 st_config_food_min = {
-	title = st_config_food_min_title
-	desc = st_config_food_min_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -230,14 +231,14 @@ st_config_food_min = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_food_desired = {
-	title = st_config_food_desired_title
-	desc = st_config_food_desired_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -254,14 +255,14 @@ st_config_food_desired = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_food_max = {
-	title = st_config_food_max_title
-	desc = st_config_food_max_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -278,8 +279,8 @@ st_config_food_max = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
@@ -288,8 +289,8 @@ st_config_food_max = {
 # ============================================================
 
 st_config_consumer_goods_min = {
-	title = st_config_consumer_goods_min_title
-	desc = st_config_consumer_goods_min_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -306,14 +307,14 @@ st_config_consumer_goods_min = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_consumer_goods_desired = {
-	title = st_config_consumer_goods_desired_title
-	desc = st_config_consumer_goods_desired_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -330,14 +331,14 @@ st_config_consumer_goods_desired = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_consumer_goods_max = {
-	title = st_config_consumer_goods_max_title
-	desc = st_config_consumer_goods_max_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -354,8 +355,8 @@ st_config_consumer_goods_max = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
@@ -364,8 +365,8 @@ st_config_consumer_goods_max = {
 # ============================================================
 
 st_config_alloys_min = {
-	title = st_config_alloys_min_title
-	desc = st_config_alloys_min_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -382,14 +383,14 @@ st_config_alloys_min = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_alloys_desired = {
-	title = st_config_alloys_desired_title
-	desc = st_config_alloys_desired_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -406,14 +407,14 @@ st_config_alloys_desired = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }
 
 st_config_alloys_max = {
-	title = st_config_alloys_max_title
-	desc = st_config_alloys_max_desc
+	length = 0
+	icon = "GFX_edict_type_policy"
 
 	potential = {
 		st_is_player_country = yes
@@ -430,7 +431,7 @@ st_config_alloys_max = {
 		}
 	}
 
-	ai_weight = {
-		weight = 0
+	ai_will_do = {
+		base = 0
 	}
 }

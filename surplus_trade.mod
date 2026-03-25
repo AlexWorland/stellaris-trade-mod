@@ -3,5 +3,5 @@ tags={
 	"Gameplay"
 	"Economy"
 }
-supported_version="4.0.*"
+supported_version="4.*"
 path="mod/surplus_trade"

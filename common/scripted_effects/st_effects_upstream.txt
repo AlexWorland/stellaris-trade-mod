@@ -11,37 +11,37 @@ st_sell_energy_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 11000 } }
 			add_resource = { energy = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 6000 } }
 			add_resource = { energy = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 3000 } }
 			add_resource = { energy = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 2000 } }
 			add_resource = { energy = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 1500 } }
 			add_resource = { energy = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 1200 } }
 			add_resource = { energy = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 1100 } }
 			add_resource = { energy = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 2500
@@ -50,37 +50,37 @@ st_sell_energy_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 12500 } }
 			add_resource = { energy = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 7500 } }
 			add_resource = { energy = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 4500 } }
 			add_resource = { energy = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 3500 } }
 			add_resource = { energy = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 3000 } }
 			add_resource = { energy = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 2700 } }
 			add_resource = { energy = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 2600 } }
 			add_resource = { energy = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 5000
@@ -89,37 +89,37 @@ st_sell_energy_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 15000 } }
 			add_resource = { energy = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 10000 } }
 			add_resource = { energy = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 7000 } }
 			add_resource = { energy = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 6000 } }
 			add_resource = { energy = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 5500 } }
 			add_resource = { energy = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 5200 } }
 			add_resource = { energy = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 5100 } }
 			add_resource = { energy = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 10000
@@ -128,37 +128,37 @@ st_sell_energy_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 20000 } }
 			add_resource = { energy = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 15000 } }
 			add_resource = { energy = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 12000 } }
 			add_resource = { energy = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 11000 } }
 			add_resource = { energy = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 10500 } }
 			add_resource = { energy = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 10200 } }
 			add_resource = { energy = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = energy value >= 10100 } }
 			add_resource = { energy = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 99999 (Unlimited) — no branch, no selling occurs
@@ -171,37 +171,37 @@ st_sell_minerals_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 11000 } }
 			add_resource = { minerals = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 6000 } }
 			add_resource = { minerals = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 3000 } }
 			add_resource = { minerals = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 2000 } }
 			add_resource = { minerals = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 1500 } }
 			add_resource = { minerals = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 1200 } }
 			add_resource = { minerals = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 1100 } }
 			add_resource = { minerals = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 2500
@@ -210,37 +210,37 @@ st_sell_minerals_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 12500 } }
 			add_resource = { minerals = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 7500 } }
 			add_resource = { minerals = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 4500 } }
 			add_resource = { minerals = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 3500 } }
 			add_resource = { minerals = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 3000 } }
 			add_resource = { minerals = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 2700 } }
 			add_resource = { minerals = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 2600 } }
 			add_resource = { minerals = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 5000
@@ -249,37 +249,37 @@ st_sell_minerals_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 15000 } }
 			add_resource = { minerals = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 10000 } }
 			add_resource = { minerals = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 7000 } }
 			add_resource = { minerals = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 6000 } }
 			add_resource = { minerals = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 5500 } }
 			add_resource = { minerals = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 5200 } }
 			add_resource = { minerals = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 5100 } }
 			add_resource = { minerals = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 10000
@@ -288,37 +288,37 @@ st_sell_minerals_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 20000 } }
 			add_resource = { minerals = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 15000 } }
 			add_resource = { minerals = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 12000 } }
 			add_resource = { minerals = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 11000 } }
 			add_resource = { minerals = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 10500 } }
 			add_resource = { minerals = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 10200 } }
 			add_resource = { minerals = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = minerals value >= 10100 } }
 			add_resource = { minerals = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 99999 (Unlimited) — no branch, no selling occurs
@@ -331,37 +331,37 @@ st_sell_food_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 11000 } }
 			add_resource = { food = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 6000 } }
 			add_resource = { food = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 3000 } }
 			add_resource = { food = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 2000 } }
 			add_resource = { food = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 1500 } }
 			add_resource = { food = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 1200 } }
 			add_resource = { food = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 1100 } }
 			add_resource = { food = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 2500
@@ -370,37 +370,37 @@ st_sell_food_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 12500 } }
 			add_resource = { food = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 7500 } }
 			add_resource = { food = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 4500 } }
 			add_resource = { food = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 3500 } }
 			add_resource = { food = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 3000 } }
 			add_resource = { food = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 2700 } }
 			add_resource = { food = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 2600 } }
 			add_resource = { food = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 5000
@@ -409,37 +409,37 @@ st_sell_food_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 15000 } }
 			add_resource = { food = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 10000 } }
 			add_resource = { food = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 7000 } }
 			add_resource = { food = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 6000 } }
 			add_resource = { food = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 5500 } }
 			add_resource = { food = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 5200 } }
 			add_resource = { food = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 5100 } }
 			add_resource = { food = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 10000
@@ -448,37 +448,37 @@ st_sell_food_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 20000 } }
 			add_resource = { food = -10000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 15000 } }
 			add_resource = { food = -5000 }
-			add_resource = { trade_value = 5000 }
+			add_resource = { trade = 5000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 12000 } }
 			add_resource = { food = -2000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 11000 } }
 			add_resource = { food = -1000 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 10500 } }
 			add_resource = { food = -500 }
-			add_resource = { trade_value = 500 }
+			add_resource = { trade = 500 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 10200 } }
 			add_resource = { food = -200 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = food value >= 10100 } }
 			add_resource = { food = -100 }
-			add_resource = { trade_value = 100 }
+			add_resource = { trade = 100 }
 		}
 	}
 	# Max = 99999 (Unlimited) — no branch, no selling occurs
@@ -491,37 +491,37 @@ st_sell_consumer_goods_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 11000 } }
 			add_resource = { consumer_goods = -10000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 6000 } }
 			add_resource = { consumer_goods = -5000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 3000 } }
 			add_resource = { consumer_goods = -2000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 2000 } }
 			add_resource = { consumer_goods = -1000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 1500 } }
 			add_resource = { consumer_goods = -500 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 1200 } }
 			add_resource = { consumer_goods = -200 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 1100 } }
 			add_resource = { consumer_goods = -100 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 	}
 	# Max = 2500
@@ -530,37 +530,37 @@ st_sell_consumer_goods_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 12500 } }
 			add_resource = { consumer_goods = -10000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 7500 } }
 			add_resource = { consumer_goods = -5000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 4500 } }
 			add_resource = { consumer_goods = -2000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 3500 } }
 			add_resource = { consumer_goods = -1000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 3000 } }
 			add_resource = { consumer_goods = -500 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 2700 } }
 			add_resource = { consumer_goods = -200 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 2600 } }
 			add_resource = { consumer_goods = -100 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 	}
 	# Max = 5000
@@ -569,37 +569,37 @@ st_sell_consumer_goods_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 15000 } }
 			add_resource = { consumer_goods = -10000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 10000 } }
 			add_resource = { consumer_goods = -5000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 7000 } }
 			add_resource = { consumer_goods = -2000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 6000 } }
 			add_resource = { consumer_goods = -1000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 5500 } }
 			add_resource = { consumer_goods = -500 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 5200 } }
 			add_resource = { consumer_goods = -200 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 5100 } }
 			add_resource = { consumer_goods = -100 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 	}
 	# Max = 10000
@@ -608,37 +608,37 @@ st_sell_consumer_goods_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 20000 } }
 			add_resource = { consumer_goods = -10000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 15000 } }
 			add_resource = { consumer_goods = -5000 }
-			add_resource = { trade_value = 10000 }
+			add_resource = { trade = 10000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 12000 } }
 			add_resource = { consumer_goods = -2000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 11000 } }
 			add_resource = { consumer_goods = -1000 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 10500 } }
 			add_resource = { consumer_goods = -500 }
-			add_resource = { trade_value = 1000 }
+			add_resource = { trade = 1000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 10200 } }
 			add_resource = { consumer_goods = -200 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = consumer_goods value >= 10100 } }
 			add_resource = { consumer_goods = -100 }
-			add_resource = { trade_value = 200 }
+			add_resource = { trade = 200 }
 		}
 	}
 	# Max = 99999 (Unlimited) — no branch, no selling occurs
@@ -651,37 +651,37 @@ st_sell_alloys_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 11000 } }
 			add_resource = { alloys = -10000 }
-			add_resource = { trade_value = 40000 }
+			add_resource = { trade = 40000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 6000 } }
 			add_resource = { alloys = -5000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 3000 } }
 			add_resource = { alloys = -2000 }
-			add_resource = { trade_value = 8000 }
+			add_resource = { trade = 8000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 2000 } }
 			add_resource = { alloys = -1000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 1500 } }
 			add_resource = { alloys = -500 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 1200 } }
 			add_resource = { alloys = -200 }
-			add_resource = { trade_value = 800 }
+			add_resource = { trade = 800 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 1100 } }
 			add_resource = { alloys = -100 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 	}
 	# Max = 2500
@@ -690,37 +690,37 @@ st_sell_alloys_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 12500 } }
 			add_resource = { alloys = -10000 }
-			add_resource = { trade_value = 40000 }
+			add_resource = { trade = 40000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 7500 } }
 			add_resource = { alloys = -5000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 4500 } }
 			add_resource = { alloys = -2000 }
-			add_resource = { trade_value = 8000 }
+			add_resource = { trade = 8000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 3500 } }
 			add_resource = { alloys = -1000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 3000 } }
 			add_resource = { alloys = -500 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 2700 } }
 			add_resource = { alloys = -200 }
-			add_resource = { trade_value = 800 }
+			add_resource = { trade = 800 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 2600 } }
 			add_resource = { alloys = -100 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 	}
 	# Max = 5000
@@ -729,37 +729,37 @@ st_sell_alloys_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 15000 } }
 			add_resource = { alloys = -10000 }
-			add_resource = { trade_value = 40000 }
+			add_resource = { trade = 40000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 10000 } }
 			add_resource = { alloys = -5000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 7000 } }
 			add_resource = { alloys = -2000 }
-			add_resource = { trade_value = 8000 }
+			add_resource = { trade = 8000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 6000 } }
 			add_resource = { alloys = -1000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 5500 } }
 			add_resource = { alloys = -500 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 5200 } }
 			add_resource = { alloys = -200 }
-			add_resource = { trade_value = 800 }
+			add_resource = { trade = 800 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 5100 } }
 			add_resource = { alloys = -100 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 	}
 	# Max = 10000
@@ -768,37 +768,37 @@ st_sell_alloys_surplus = {
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 20000 } }
 			add_resource = { alloys = -10000 }
-			add_resource = { trade_value = 40000 }
+			add_resource = { trade = 40000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 15000 } }
 			add_resource = { alloys = -5000 }
-			add_resource = { trade_value = 20000 }
+			add_resource = { trade = 20000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 12000 } }
 			add_resource = { alloys = -2000 }
-			add_resource = { trade_value = 8000 }
+			add_resource = { trade = 8000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 11000 } }
 			add_resource = { alloys = -1000 }
-			add_resource = { trade_value = 4000 }
+			add_resource = { trade = 4000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 10500 } }
 			add_resource = { alloys = -500 }
-			add_resource = { trade_value = 2000 }
+			add_resource = { trade = 2000 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 10200 } }
 			add_resource = { alloys = -200 }
-			add_resource = { trade_value = 800 }
+			add_resource = { trade = 800 }
 		}
 		if = {
 			limit = { resource_stockpile_compare = { resource = alloys value >= 10100 } }
 			add_resource = { alloys = -100 }
-			add_resource = { trade_value = 400 }
+			add_resource = { trade = 400 }
 		}
 	}
 	# Max = 99999 (Unlimited) — no branch, no selling occurs
