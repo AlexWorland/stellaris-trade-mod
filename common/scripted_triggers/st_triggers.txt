@@ -1,0 +1,408 @@
+# Surplus Trade — Scripted Triggers
+# Gap-band detection for resource deficit thresholds.
+#
+# Stellaris has no arithmetic in triggers, so we precompute stockpile
+# thresholds for each (desired_tier, band) pair:
+#   gap > X  ⟺  stockpile < (desired - X)
+#
+# Threshold table (same for all 5 resources):
+#   Desired | Critical(>2000) | Large(>1000) | Medium(>500) | Any deficit
+#   --------|-----------------|--------------|--------------|------------
+#     200   |       —         |      —       |      —       |    200
+#     500   |       —         |      —       |      —       |    500
+#    1000   |       —         |      —       |     500      |   1000
+#    2500   |      500        |    1500      |    2000      |   2500
+#    5000   |     3000        |    4000      |    4500      |   5000
+
+# ============================================================
+# Utility Triggers
+# ============================================================
+
+st_is_enabled = {
+	check_variable = { which = st_system_enabled value >= 1 }
+}
+
+st_is_player_country = {
+	is_ai = no
+	is_country_type = default
+}
+
+# ============================================================
+# Energy
+# ============================================================
+
+st_energy_gap_critical = {
+	check_variable = { which = st_energy_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_energy_desired value = 5000 }
+			resource_stockpile_compare = { resource = energy value < 3000 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 2500 }
+			resource_stockpile_compare = { resource = energy value < 500 }
+		}
+	}
+}
+
+st_energy_gap_large = {
+	check_variable = { which = st_energy_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_energy_desired value = 5000 }
+			resource_stockpile_compare = { resource = energy value < 4000 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 2500 }
+			resource_stockpile_compare = { resource = energy value < 1500 }
+		}
+	}
+}
+
+st_energy_gap_medium = {
+	check_variable = { which = st_energy_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_energy_desired value = 5000 }
+			resource_stockpile_compare = { resource = energy value < 4500 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 2500 }
+			resource_stockpile_compare = { resource = energy value < 2000 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 1000 }
+			resource_stockpile_compare = { resource = energy value < 500 }
+		}
+	}
+}
+
+st_energy_has_deficit = {
+	check_variable = { which = st_energy_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_energy_desired value = 5000 }
+			resource_stockpile_compare = { resource = energy value < 5000 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 2500 }
+			resource_stockpile_compare = { resource = energy value < 2500 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 1000 }
+			resource_stockpile_compare = { resource = energy value < 1000 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 500 }
+			resource_stockpile_compare = { resource = energy value < 500 }
+		}
+		AND = {
+			check_variable = { which = st_energy_desired value = 200 }
+			resource_stockpile_compare = { resource = energy value < 200 }
+		}
+	}
+}
+
+# ============================================================
+# Minerals
+# ============================================================
+
+st_minerals_gap_critical = {
+	check_variable = { which = st_minerals_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_minerals_desired value = 5000 }
+			resource_stockpile_compare = { resource = minerals value < 3000 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 2500 }
+			resource_stockpile_compare = { resource = minerals value < 500 }
+		}
+	}
+}
+
+st_minerals_gap_large = {
+	check_variable = { which = st_minerals_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_minerals_desired value = 5000 }
+			resource_stockpile_compare = { resource = minerals value < 4000 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 2500 }
+			resource_stockpile_compare = { resource = minerals value < 1500 }
+		}
+	}
+}
+
+st_minerals_gap_medium = {
+	check_variable = { which = st_minerals_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_minerals_desired value = 5000 }
+			resource_stockpile_compare = { resource = minerals value < 4500 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 2500 }
+			resource_stockpile_compare = { resource = minerals value < 2000 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 1000 }
+			resource_stockpile_compare = { resource = minerals value < 500 }
+		}
+	}
+}
+
+st_minerals_has_deficit = {
+	check_variable = { which = st_minerals_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_minerals_desired value = 5000 }
+			resource_stockpile_compare = { resource = minerals value < 5000 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 2500 }
+			resource_stockpile_compare = { resource = minerals value < 2500 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 1000 }
+			resource_stockpile_compare = { resource = minerals value < 1000 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 500 }
+			resource_stockpile_compare = { resource = minerals value < 500 }
+		}
+		AND = {
+			check_variable = { which = st_minerals_desired value = 200 }
+			resource_stockpile_compare = { resource = minerals value < 200 }
+		}
+	}
+}
+
+# ============================================================
+# Food
+# ============================================================
+
+st_food_gap_critical = {
+	check_variable = { which = st_food_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_food_desired value = 5000 }
+			resource_stockpile_compare = { resource = food value < 3000 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 2500 }
+			resource_stockpile_compare = { resource = food value < 500 }
+		}
+	}
+}
+
+st_food_gap_large = {
+	check_variable = { which = st_food_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_food_desired value = 5000 }
+			resource_stockpile_compare = { resource = food value < 4000 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 2500 }
+			resource_stockpile_compare = { resource = food value < 1500 }
+		}
+	}
+}
+
+st_food_gap_medium = {
+	check_variable = { which = st_food_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_food_desired value = 5000 }
+			resource_stockpile_compare = { resource = food value < 4500 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 2500 }
+			resource_stockpile_compare = { resource = food value < 2000 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 1000 }
+			resource_stockpile_compare = { resource = food value < 500 }
+		}
+	}
+}
+
+st_food_has_deficit = {
+	check_variable = { which = st_food_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_food_desired value = 5000 }
+			resource_stockpile_compare = { resource = food value < 5000 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 2500 }
+			resource_stockpile_compare = { resource = food value < 2500 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 1000 }
+			resource_stockpile_compare = { resource = food value < 1000 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 500 }
+			resource_stockpile_compare = { resource = food value < 500 }
+		}
+		AND = {
+			check_variable = { which = st_food_desired value = 200 }
+			resource_stockpile_compare = { resource = food value < 200 }
+		}
+	}
+}
+
+# ============================================================
+# Consumer Goods
+# ============================================================
+
+st_consumer_goods_gap_critical = {
+	check_variable = { which = st_consumer_goods_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 5000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 3000 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 2500 }
+			resource_stockpile_compare = { resource = consumer_goods value < 500 }
+		}
+	}
+}
+
+st_consumer_goods_gap_large = {
+	check_variable = { which = st_consumer_goods_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 5000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 4000 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 2500 }
+			resource_stockpile_compare = { resource = consumer_goods value < 1500 }
+		}
+	}
+}
+
+st_consumer_goods_gap_medium = {
+	check_variable = { which = st_consumer_goods_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 5000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 4500 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 2500 }
+			resource_stockpile_compare = { resource = consumer_goods value < 2000 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 1000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 500 }
+		}
+	}
+}
+
+st_consumer_goods_has_deficit = {
+	check_variable = { which = st_consumer_goods_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 5000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 5000 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 2500 }
+			resource_stockpile_compare = { resource = consumer_goods value < 2500 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 1000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 1000 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 500 }
+			resource_stockpile_compare = { resource = consumer_goods value < 500 }
+		}
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 200 }
+			resource_stockpile_compare = { resource = consumer_goods value < 200 }
+		}
+	}
+}
+
+# ============================================================
+# Alloys
+# ============================================================
+
+st_alloys_gap_critical = {
+	check_variable = { which = st_alloys_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_alloys_desired value = 5000 }
+			resource_stockpile_compare = { resource = alloys value < 3000 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 2500 }
+			resource_stockpile_compare = { resource = alloys value < 500 }
+		}
+	}
+}
+
+st_alloys_gap_large = {
+	check_variable = { which = st_alloys_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_alloys_desired value = 5000 }
+			resource_stockpile_compare = { resource = alloys value < 4000 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 2500 }
+			resource_stockpile_compare = { resource = alloys value < 1500 }
+		}
+	}
+}
+
+st_alloys_gap_medium = {
+	check_variable = { which = st_alloys_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_alloys_desired value = 5000 }
+			resource_stockpile_compare = { resource = alloys value < 4500 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 2500 }
+			resource_stockpile_compare = { resource = alloys value < 2000 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 1000 }
+			resource_stockpile_compare = { resource = alloys value < 500 }
+		}
+	}
+}
+
+st_alloys_has_deficit = {
+	check_variable = { which = st_alloys_enabled value >= 1 }
+	OR = {
+		AND = {
+			check_variable = { which = st_alloys_desired value = 5000 }
+			resource_stockpile_compare = { resource = alloys value < 5000 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 2500 }
+			resource_stockpile_compare = { resource = alloys value < 2500 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 1000 }
+			resource_stockpile_compare = { resource = alloys value < 1000 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 500 }
+			resource_stockpile_compare = { resource = alloys value < 500 }
+		}
+		AND = {
+			check_variable = { which = st_alloys_desired value = 200 }
+			resource_stockpile_compare = { resource = alloys value < 200 }
+		}
+	}
+}
