@@ -1,0 +1,3 @@
+# Surplus Trade — Static Modifiers
+# Placeholder for future visual indicator icons.
+# Phase 2+ will add modifiers for active trade status display.
