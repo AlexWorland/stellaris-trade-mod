@@ -1,0 +1,990 @@
+namespace = st_events
+
+# ============================================================
+# Event 0 — Initialization (silent)
+# Fires on game start and save load.
+# Sets all variable defaults ONLY if not already initialized.
+# ============================================================
+
+country_event = {
+	id = st_events.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		is_country_type = default
+		NOT = { has_country_flag = st_initialized }
+	}
+
+	immediate = {
+		set_country_flag = st_initialized
+
+		# Master toggle (off by default)
+		set_variable = { which = st_system_enabled value = 0 }
+
+		# Per-resource enabled flags (all on by default)
+		set_variable = { which = st_energy_enabled value = 1 }
+		set_variable = { which = st_minerals_enabled value = 1 }
+		set_variable = { which = st_food_enabled value = 1 }
+		set_variable = { which = st_consumer_goods_enabled value = 1 }
+		set_variable = { which = st_alloys_enabled value = 1 }
+
+		# Energy defaults
+		set_variable = { which = st_energy_min value = 0 }
+		set_variable = { which = st_energy_desired value = 1000 }
+		set_variable = { which = st_energy_max value = 5000 }
+
+		# Minerals defaults
+		set_variable = { which = st_minerals_min value = 0 }
+		set_variable = { which = st_minerals_desired value = 1000 }
+		set_variable = { which = st_minerals_max value = 5000 }
+
+		# Food defaults
+		set_variable = { which = st_food_min value = 0 }
+		set_variable = { which = st_food_desired value = 1000 }
+		set_variable = { which = st_food_max value = 5000 }
+
+		# Consumer Goods defaults
+		set_variable = { which = st_consumer_goods_min value = 0 }
+		set_variable = { which = st_consumer_goods_desired value = 1000 }
+		set_variable = { which = st_consumer_goods_max value = 5000 }
+
+		# Alloys defaults
+		set_variable = { which = st_alloys_min value = 0 }
+		set_variable = { which = st_alloys_desired value = 1000 }
+		set_variable = { which = st_alloys_max value = 5000 }
+	}
+}
+
+# ============================================================
+# Event 1 — Monthly Pulse (silent)
+# ============================================================
+
+country_event = {
+	id = st_events.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		st_is_enabled = yes
+		st_is_player_country = yes
+	}
+
+	immediate = {
+		# Phase 1: SELL (5 iterations for graduated chunks)
+		st_sell_all_surplus = yes
+		st_sell_all_surplus = yes
+		st_sell_all_surplus = yes
+		st_sell_all_surplus = yes
+		st_sell_all_surplus = yes
+
+		# Phase 2: BUY (5 iterations)
+		st_buy_cycle = yes
+		st_buy_cycle = yes
+		st_buy_cycle = yes
+		st_buy_cycle = yes
+		st_buy_cycle = yes
+	}
+}
+
+# ============================================================
+# Events 10-11 — System Toggle Confirmations
+# ============================================================
+
+country_event = {
+	id = st_events.10
+	title = st_event_10_title
+	desc = st_event_10_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_10_ok
+	}
+}
+
+country_event = {
+	id = st_events.11
+	title = st_event_11_title
+	desc = st_event_11_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_11_ok
+	}
+}
+
+# ============================================================
+# Events 100-124 — Energy Config Confirmations
+# ============================================================
+
+# Energy Min: 100
+country_event = {
+	id = st_events.100
+	title = st_event_100_title
+	desc = st_event_100_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_100_ok
+	}
+}
+
+# Energy Min: 200
+country_event = {
+	id = st_events.101
+	title = st_event_101_title
+	desc = st_event_101_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_101_ok
+	}
+}
+
+# Energy Min: 500
+country_event = {
+	id = st_events.102
+	title = st_event_102_title
+	desc = st_event_102_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_102_ok
+	}
+}
+
+# Energy Min: 0
+country_event = {
+	id = st_events.103
+	title = st_event_103_title
+	desc = st_event_103_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_103_ok
+	}
+}
+
+# Energy Desired: 500
+country_event = {
+	id = st_events.110
+	title = st_event_110_title
+	desc = st_event_110_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_110_ok
+	}
+}
+
+# Energy Desired: 1000
+country_event = {
+	id = st_events.111
+	title = st_event_111_title
+	desc = st_event_111_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_111_ok
+	}
+}
+
+# Energy Desired: 2500
+country_event = {
+	id = st_events.112
+	title = st_event_112_title
+	desc = st_event_112_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_112_ok
+	}
+}
+
+# Energy Desired: 5000
+country_event = {
+	id = st_events.113
+	title = st_event_113_title
+	desc = st_event_113_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_113_ok
+	}
+}
+
+# Energy Desired: 200
+country_event = {
+	id = st_events.114
+	title = st_event_114_title
+	desc = st_event_114_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_114_ok
+	}
+}
+
+# Energy Max: 2500
+country_event = {
+	id = st_events.120
+	title = st_event_120_title
+	desc = st_event_120_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_120_ok
+	}
+}
+
+# Energy Max: 5000
+country_event = {
+	id = st_events.121
+	title = st_event_121_title
+	desc = st_event_121_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_121_ok
+	}
+}
+
+# Energy Max: 10000
+country_event = {
+	id = st_events.122
+	title = st_event_122_title
+	desc = st_event_122_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_122_ok
+	}
+}
+
+# Energy Max: Unlimited
+country_event = {
+	id = st_events.123
+	title = st_event_123_title
+	desc = st_event_123_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_123_ok
+	}
+}
+
+# Energy Max: 1000
+country_event = {
+	id = st_events.124
+	title = st_event_124_title
+	desc = st_event_124_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_124_ok
+	}
+}
+
+# ============================================================
+# Events 200-224 — Minerals Config Confirmations
+# ============================================================
+
+# Minerals Min: 100
+country_event = {
+	id = st_events.200
+	title = st_event_200_title
+	desc = st_event_200_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_200_ok
+	}
+}
+
+# Minerals Min: 200
+country_event = {
+	id = st_events.201
+	title = st_event_201_title
+	desc = st_event_201_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_201_ok
+	}
+}
+
+# Minerals Min: 500
+country_event = {
+	id = st_events.202
+	title = st_event_202_title
+	desc = st_event_202_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_202_ok
+	}
+}
+
+# Minerals Min: 0
+country_event = {
+	id = st_events.203
+	title = st_event_203_title
+	desc = st_event_203_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_203_ok
+	}
+}
+
+# Minerals Desired: 500
+country_event = {
+	id = st_events.210
+	title = st_event_210_title
+	desc = st_event_210_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_210_ok
+	}
+}
+
+# Minerals Desired: 1000
+country_event = {
+	id = st_events.211
+	title = st_event_211_title
+	desc = st_event_211_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_211_ok
+	}
+}
+
+# Minerals Desired: 2500
+country_event = {
+	id = st_events.212
+	title = st_event_212_title
+	desc = st_event_212_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_212_ok
+	}
+}
+
+# Minerals Desired: 5000
+country_event = {
+	id = st_events.213
+	title = st_event_213_title
+	desc = st_event_213_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_213_ok
+	}
+}
+
+# Minerals Desired: 200
+country_event = {
+	id = st_events.214
+	title = st_event_214_title
+	desc = st_event_214_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_214_ok
+	}
+}
+
+# Minerals Max: 2500
+country_event = {
+	id = st_events.220
+	title = st_event_220_title
+	desc = st_event_220_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_220_ok
+	}
+}
+
+# Minerals Max: 5000
+country_event = {
+	id = st_events.221
+	title = st_event_221_title
+	desc = st_event_221_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_221_ok
+	}
+}
+
+# Minerals Max: 10000
+country_event = {
+	id = st_events.222
+	title = st_event_222_title
+	desc = st_event_222_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_222_ok
+	}
+}
+
+# Minerals Max: Unlimited
+country_event = {
+	id = st_events.223
+	title = st_event_223_title
+	desc = st_event_223_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_223_ok
+	}
+}
+
+# Minerals Max: 1000
+country_event = {
+	id = st_events.224
+	title = st_event_224_title
+	desc = st_event_224_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_224_ok
+	}
+}
+
+# ============================================================
+# Events 300-324 — Food Config Confirmations
+# ============================================================
+
+# Food Min: 100
+country_event = {
+	id = st_events.300
+	title = st_event_300_title
+	desc = st_event_300_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_300_ok
+	}
+}
+
+# Food Min: 200
+country_event = {
+	id = st_events.301
+	title = st_event_301_title
+	desc = st_event_301_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_301_ok
+	}
+}
+
+# Food Min: 500
+country_event = {
+	id = st_events.302
+	title = st_event_302_title
+	desc = st_event_302_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_302_ok
+	}
+}
+
+# Food Min: 0
+country_event = {
+	id = st_events.303
+	title = st_event_303_title
+	desc = st_event_303_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_303_ok
+	}
+}
+
+# Food Desired: 500
+country_event = {
+	id = st_events.310
+	title = st_event_310_title
+	desc = st_event_310_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_310_ok
+	}
+}
+
+# Food Desired: 1000
+country_event = {
+	id = st_events.311
+	title = st_event_311_title
+	desc = st_event_311_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_311_ok
+	}
+}
+
+# Food Desired: 2500
+country_event = {
+	id = st_events.312
+	title = st_event_312_title
+	desc = st_event_312_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_312_ok
+	}
+}
+
+# Food Desired: 5000
+country_event = {
+	id = st_events.313
+	title = st_event_313_title
+	desc = st_event_313_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_313_ok
+	}
+}
+
+# Food Desired: 200
+country_event = {
+	id = st_events.314
+	title = st_event_314_title
+	desc = st_event_314_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_314_ok
+	}
+}
+
+# Food Max: 2500
+country_event = {
+	id = st_events.320
+	title = st_event_320_title
+	desc = st_event_320_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_320_ok
+	}
+}
+
+# Food Max: 5000
+country_event = {
+	id = st_events.321
+	title = st_event_321_title
+	desc = st_event_321_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_321_ok
+	}
+}
+
+# Food Max: 10000
+country_event = {
+	id = st_events.322
+	title = st_event_322_title
+	desc = st_event_322_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_322_ok
+	}
+}
+
+# Food Max: Unlimited
+country_event = {
+	id = st_events.323
+	title = st_event_323_title
+	desc = st_event_323_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_323_ok
+	}
+}
+
+# Food Max: 1000
+country_event = {
+	id = st_events.324
+	title = st_event_324_title
+	desc = st_event_324_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_324_ok
+	}
+}
+
+# ============================================================
+# Events 400-424 — Consumer Goods Config Confirmations
+# ============================================================
+
+# Consumer Goods Min: 100
+country_event = {
+	id = st_events.400
+	title = st_event_400_title
+	desc = st_event_400_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_400_ok
+	}
+}
+
+# Consumer Goods Min: 200
+country_event = {
+	id = st_events.401
+	title = st_event_401_title
+	desc = st_event_401_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_401_ok
+	}
+}
+
+# Consumer Goods Min: 500
+country_event = {
+	id = st_events.402
+	title = st_event_402_title
+	desc = st_event_402_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_402_ok
+	}
+}
+
+# Consumer Goods Min: 0
+country_event = {
+	id = st_events.403
+	title = st_event_403_title
+	desc = st_event_403_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_403_ok
+	}
+}
+
+# Consumer Goods Desired: 500
+country_event = {
+	id = st_events.410
+	title = st_event_410_title
+	desc = st_event_410_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_410_ok
+	}
+}
+
+# Consumer Goods Desired: 1000
+country_event = {
+	id = st_events.411
+	title = st_event_411_title
+	desc = st_event_411_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_411_ok
+	}
+}
+
+# Consumer Goods Desired: 2500
+country_event = {
+	id = st_events.412
+	title = st_event_412_title
+	desc = st_event_412_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_412_ok
+	}
+}
+
+# Consumer Goods Desired: 5000
+country_event = {
+	id = st_events.413
+	title = st_event_413_title
+	desc = st_event_413_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_413_ok
+	}
+}
+
+# Consumer Goods Desired: 200
+country_event = {
+	id = st_events.414
+	title = st_event_414_title
+	desc = st_event_414_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_414_ok
+	}
+}
+
+# Consumer Goods Max: 2500
+country_event = {
+	id = st_events.420
+	title = st_event_420_title
+	desc = st_event_420_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_420_ok
+	}
+}
+
+# Consumer Goods Max: 5000
+country_event = {
+	id = st_events.421
+	title = st_event_421_title
+	desc = st_event_421_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_421_ok
+	}
+}
+
+# Consumer Goods Max: 10000
+country_event = {
+	id = st_events.422
+	title = st_event_422_title
+	desc = st_event_422_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_422_ok
+	}
+}
+
+# Consumer Goods Max: Unlimited
+country_event = {
+	id = st_events.423
+	title = st_event_423_title
+	desc = st_event_423_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_423_ok
+	}
+}
+
+# Consumer Goods Max: 1000
+country_event = {
+	id = st_events.424
+	title = st_event_424_title
+	desc = st_event_424_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_424_ok
+	}
+}
+
+# ============================================================
+# Events 500-524 — Alloys Config Confirmations
+# ============================================================
+
+# Alloys Min: 100
+country_event = {
+	id = st_events.500
+	title = st_event_500_title
+	desc = st_event_500_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_500_ok
+	}
+}
+
+# Alloys Min: 200
+country_event = {
+	id = st_events.501
+	title = st_event_501_title
+	desc = st_event_501_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_501_ok
+	}
+}
+
+# Alloys Min: 500
+country_event = {
+	id = st_events.502
+	title = st_event_502_title
+	desc = st_event_502_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_502_ok
+	}
+}
+
+# Alloys Min: 0
+country_event = {
+	id = st_events.503
+	title = st_event_503_title
+	desc = st_event_503_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_503_ok
+	}
+}
+
+# Alloys Desired: 500
+country_event = {
+	id = st_events.510
+	title = st_event_510_title
+	desc = st_event_510_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_510_ok
+	}
+}
+
+# Alloys Desired: 1000
+country_event = {
+	id = st_events.511
+	title = st_event_511_title
+	desc = st_event_511_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_511_ok
+	}
+}
+
+# Alloys Desired: 2500
+country_event = {
+	id = st_events.512
+	title = st_event_512_title
+	desc = st_event_512_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_512_ok
+	}
+}
+
+# Alloys Desired: 5000
+country_event = {
+	id = st_events.513
+	title = st_event_513_title
+	desc = st_event_513_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_513_ok
+	}
+}
+
+# Alloys Desired: 200
+country_event = {
+	id = st_events.514
+	title = st_event_514_title
+	desc = st_event_514_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_514_ok
+	}
+}
+
+# Alloys Max: 2500
+country_event = {
+	id = st_events.520
+	title = st_event_520_title
+	desc = st_event_520_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_520_ok
+	}
+}
+
+# Alloys Max: 5000
+country_event = {
+	id = st_events.521
+	title = st_event_521_title
+	desc = st_event_521_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_521_ok
+	}
+}
+
+# Alloys Max: 10000
+country_event = {
+	id = st_events.522
+	title = st_event_522_title
+	desc = st_event_522_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_522_ok
+	}
+}
+
+# Alloys Max: Unlimited
+country_event = {
+	id = st_events.523
+	title = st_event_523_title
+	desc = st_event_523_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_523_ok
+	}
+}
+
+# Alloys Max: 1000
+country_event = {
+	id = st_events.524
+	title = st_event_524_title
+	desc = st_event_524_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_524_ok
+	}
+}
+
+# ============================================================
+# Event 900 — Trade Report
+# ============================================================
+
+country_event = {
+	id = st_events.900
+	title = st_event_900_title
+	desc = st_event_900_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_900_ok
+	}
+}
