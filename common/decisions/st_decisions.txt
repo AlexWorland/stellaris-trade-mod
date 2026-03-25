@@ -1,0 +1,436 @@
+# Surplus Trade — Country Decisions
+# System toggle (enable/disable) + 15 config cycling decisions (min/desired/max × 5 resources)
+
+# ============================================================
+# System Toggle
+# ============================================================
+
+st_enable_system = {
+	title = st_enable_system_title
+	desc = st_enable_system_desc
+
+	potential = {
+		st_is_player_country = yes
+		NOT = { st_is_enabled = yes }
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			set_variable = { which = st_system_enabled value = 1 }
+		}
+		country_event = { id = st_events.10 }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_disable_system = {
+	title = st_disable_system_title
+	desc = st_disable_system_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			set_variable = { which = st_system_enabled value = 0 }
+		}
+		country_event = { id = st_events.11 }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+# ============================================================
+# Energy Config
+# ============================================================
+
+st_config_energy_min = {
+	title = st_config_energy_min_title
+	desc = st_config_energy_min_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_energy_min = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_energy_desired = {
+	title = st_config_energy_desired_title
+	desc = st_config_energy_desired_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_energy_desired = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_energy_max = {
+	title = st_config_energy_max_title
+	desc = st_config_energy_max_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_energy_max = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+# ============================================================
+# Minerals Config
+# ============================================================
+
+st_config_minerals_min = {
+	title = st_config_minerals_min_title
+	desc = st_config_minerals_min_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_minerals_min = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_minerals_desired = {
+	title = st_config_minerals_desired_title
+	desc = st_config_minerals_desired_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_minerals_desired = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_minerals_max = {
+	title = st_config_minerals_max_title
+	desc = st_config_minerals_max_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_minerals_max = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+# ============================================================
+# Food Config
+# ============================================================
+
+st_config_food_min = {
+	title = st_config_food_min_title
+	desc = st_config_food_min_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_food_min = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_food_desired = {
+	title = st_config_food_desired_title
+	desc = st_config_food_desired_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_food_desired = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_food_max = {
+	title = st_config_food_max_title
+	desc = st_config_food_max_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_food_max = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+# ============================================================
+# Consumer Goods Config
+# ============================================================
+
+st_config_consumer_goods_min = {
+	title = st_config_consumer_goods_min_title
+	desc = st_config_consumer_goods_min_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_consumer_goods_min = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_consumer_goods_desired = {
+	title = st_config_consumer_goods_desired_title
+	desc = st_config_consumer_goods_desired_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_consumer_goods_desired = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_consumer_goods_max = {
+	title = st_config_consumer_goods_max_title
+	desc = st_config_consumer_goods_max_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_consumer_goods_max = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+# ============================================================
+# Alloys Config
+# ============================================================
+
+st_config_alloys_min = {
+	title = st_config_alloys_min_title
+	desc = st_config_alloys_min_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_alloys_min = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_alloys_desired = {
+	title = st_config_alloys_desired_title
+	desc = st_config_alloys_desired_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_alloys_desired = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+st_config_alloys_max = {
+	title = st_config_alloys_max_title
+	desc = st_config_alloys_max_desc
+
+	potential = {
+		st_is_player_country = yes
+		st_is_enabled = yes
+	}
+
+	allow = {
+		always = yes
+	}
+
+	effect = {
+		hidden_effect = {
+			st_cycle_alloys_max = yes
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
