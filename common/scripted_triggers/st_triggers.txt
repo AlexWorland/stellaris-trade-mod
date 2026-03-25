@@ -28,6 +28,11 @@ st_is_player_country = {
 	is_country_type = default
 }
 
+st_config_edict_available = {
+	st_is_player_country = yes
+	st_is_enabled = yes
+}
+
 # ============================================================
 # Energy
 # ============================================================

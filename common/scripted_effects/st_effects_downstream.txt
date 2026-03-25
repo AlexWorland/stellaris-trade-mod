@@ -14,22 +14,22 @@
 # to be bought in a single month. Each call buys at most ONE chunk for ONE
 # resource (the highest-priority one that meets the threshold).
 #
-# Chunk sizes and TV costs:
-#   Resource        | Full chunk | TV cost | Half chunk | TV cost
-#   ----------------|------------|---------|------------|--------
-#   Energy          |    200     |   236   |    100     |   118
-#   Minerals        |    200     |   236   |    100     |   118
-#   Food            |    200     |   236   |    100     |   118
-#   Consumer Goods  |    100     |   235   |     50     |   118
-#   Alloys          |     50     |   236   |     25     |   118
+# Chunk sizes and trade costs (no tax — 1:1 base rates):
+#   Resource        | Full chunk | Trade cost | Half chunk | Trade cost
+#   ----------------|------------|------------|------------|------------
+#   Energy          |    200     |    200     |    100     |    100
+#   Minerals        |    200     |    200     |    100     |    100
+#   Food            |    200     |    200     |    100     |    100
+#   Consumer Goods  |    100     |    200     |     50     |    100
+#   Alloys          |     50     |    200     |     25     |    100
 
 # ============================================================
 # Buy Chunk Effects
 # ============================================================
 
-# Try to buy 200 energy (236 TV), fall back to 100 energy (118 TV).
+# Buy 200 energy (200 trade), fall back to 100 energy (100 trade).
 st_buy_energy_chunk = {
-	# Full chunk: 200 energy for 236 TV
+	# Full chunk: 200 energy for 200 trade
 	if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 200 }
@@ -37,7 +37,7 @@ st_buy_energy_chunk = {
 		add_resource = { trade = -200 }
 		add_resource = { energy = 200 }
 	}
-	# Half chunk: 100 energy for 118 TV
+	# Half chunk: 100 energy for 100 trade
 	else_if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 100 }
@@ -47,9 +47,9 @@ st_buy_energy_chunk = {
 	}
 }
 
-# Try to buy 200 minerals (236 TV), fall back to 100 minerals (118 TV).
+# Buy 200 minerals (200 trade), fall back to 100 minerals (100 trade).
 st_buy_minerals_chunk = {
-	# Full chunk: 200 minerals for 236 TV
+	# Full chunk: 200 minerals for 200 trade
 	if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 200 }
@@ -57,7 +57,7 @@ st_buy_minerals_chunk = {
 		add_resource = { trade = -200 }
 		add_resource = { minerals = 200 }
 	}
-	# Half chunk: 100 minerals for 118 TV
+	# Half chunk: 100 minerals for 100 trade
 	else_if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 100 }
@@ -67,9 +67,9 @@ st_buy_minerals_chunk = {
 	}
 }
 
-# Try to buy 200 food (236 TV), fall back to 100 food (118 TV).
+# Buy 200 food (200 trade), fall back to 100 food (100 trade).
 st_buy_food_chunk = {
-	# Full chunk: 200 food for 236 TV
+	# Full chunk: 200 food for 200 trade
 	if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 200 }
@@ -77,7 +77,7 @@ st_buy_food_chunk = {
 		add_resource = { trade = -200 }
 		add_resource = { food = 200 }
 	}
-	# Half chunk: 100 food for 118 TV
+	# Half chunk: 100 food for 100 trade
 	else_if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 100 }
@@ -87,9 +87,9 @@ st_buy_food_chunk = {
 	}
 }
 
-# Try to buy 100 consumer goods (235 TV), fall back to 50 consumer goods (118 TV).
+# Buy 100 consumer goods (200 trade), fall back to 50 (100 trade).
 st_buy_consumer_goods_chunk = {
-	# Full chunk: 100 consumer goods for 235 TV
+	# Full chunk: 100 consumer goods for 200 trade
 	if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 200 }
@@ -97,7 +97,7 @@ st_buy_consumer_goods_chunk = {
 		add_resource = { trade = -200 }
 		add_resource = { consumer_goods = 100 }
 	}
-	# Half chunk: 50 consumer goods for 118 TV
+	# Half chunk: 50 consumer goods for 100 trade
 	else_if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 100 }
@@ -107,9 +107,9 @@ st_buy_consumer_goods_chunk = {
 	}
 }
 
-# Try to buy 50 alloys (236 TV), fall back to 25 alloys (118 TV).
+# Buy 50 alloys (200 trade), fall back to 25 (100 trade).
 st_buy_alloys_chunk = {
-	# Full chunk: 50 alloys for 236 TV
+	# Full chunk: 50 alloys for 200 trade
 	if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 200 }
@@ -117,7 +117,7 @@ st_buy_alloys_chunk = {
 		add_resource = { trade = -200 }
 		add_resource = { alloys = 50 }
 	}
-	# Half chunk: 25 alloys for 118 TV
+	# Half chunk: 25 alloys for 100 trade
 	else_if = {
 		limit = {
 			resource_stockpile_compare = { resource = trade value >= 100 }

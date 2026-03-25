@@ -264,6 +264,3 @@
  st_event_515_title: "Surplus Trade: Alloys"
  st_event_515_desc: "Alloys desired stockpile set to §Y10,000§!."
  st_event_515_ok: "Acknowledged"
- st_event_900_title: "Surplus Trade Report"
- st_event_900_desc: "§YCurrent Configuration:§!\n\n§GEnergy:§! Min [Root.GetVariable|st_energy_min] | Desired [Root.GetVariable|st_energy_desired] | Max [Root.GetVariable|st_energy_max]\n§GMinerals:§! Min [Root.GetVariable|st_minerals_min] | Desired [Root.GetVariable|st_minerals_desired] | Max [Root.GetVariable|st_minerals_max]\n§GFood:§! Min [Root.GetVariable|st_food_min] | Desired [Root.GetVariable|st_food_desired] | Max [Root.GetVariable|st_food_max]\n§GConsumer Goods:§! Min [Root.GetVariable|st_consumer_goods_min] | Desired [Root.GetVariable|st_consumer_goods_desired] | Max [Root.GetVariable|st_consumer_goods_max]\n§GAlloys:§! Min [Root.GetVariable|st_alloys_min] | Desired [Root.GetVariable|st_alloys_desired] | Max [Root.GetVariable|st_alloys_max]"
- st_event_900_ok: "Close"
