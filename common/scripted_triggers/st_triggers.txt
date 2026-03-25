@@ -7,6 +7,7 @@
 #
 # Threshold table (same for all 5 resources):
 #   Desired | Critical(>2000) | Large(>1000) | Medium(>500) | Any deficit
+#   10000  |     8000        |    9000      |    9500      |  10000
 #   --------|-----------------|--------------|--------------|------------
 #     200   |       —         |      —       |      —       |    200
 #     500   |       —         |      —       |      —       |    500
@@ -35,6 +36,10 @@ st_energy_gap_critical = {
 	check_variable = { which = st_energy_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_energy_desired value = 10000 }
+			resource_stockpile_compare = { resource = energy value < 8000 }
+		}
+		AND = {
 			check_variable = { which = st_energy_desired value = 5000 }
 			resource_stockpile_compare = { resource = energy value < 3000 }
 		}
@@ -49,6 +54,10 @@ st_energy_gap_large = {
 	check_variable = { which = st_energy_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_energy_desired value = 10000 }
+			resource_stockpile_compare = { resource = energy value < 9000 }
+		}
+		AND = {
 			check_variable = { which = st_energy_desired value = 5000 }
 			resource_stockpile_compare = { resource = energy value < 4000 }
 		}
@@ -62,6 +71,10 @@ st_energy_gap_large = {
 st_energy_gap_medium = {
 	check_variable = { which = st_energy_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_energy_desired value = 10000 }
+			resource_stockpile_compare = { resource = energy value < 9500 }
+		}
 		AND = {
 			check_variable = { which = st_energy_desired value = 5000 }
 			resource_stockpile_compare = { resource = energy value < 4500 }
@@ -80,6 +93,10 @@ st_energy_gap_medium = {
 st_energy_has_deficit = {
 	check_variable = { which = st_energy_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_energy_desired value = 10000 }
+			resource_stockpile_compare = { resource = energy value < 10000 }
+		}
 		AND = {
 			check_variable = { which = st_energy_desired value = 5000 }
 			resource_stockpile_compare = { resource = energy value < 5000 }
@@ -111,6 +128,10 @@ st_minerals_gap_critical = {
 	check_variable = { which = st_minerals_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_minerals_desired value = 10000 }
+			resource_stockpile_compare = { resource = minerals value < 8000 }
+		}
+		AND = {
 			check_variable = { which = st_minerals_desired value = 5000 }
 			resource_stockpile_compare = { resource = minerals value < 3000 }
 		}
@@ -125,6 +146,10 @@ st_minerals_gap_large = {
 	check_variable = { which = st_minerals_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_minerals_desired value = 10000 }
+			resource_stockpile_compare = { resource = minerals value < 9000 }
+		}
+		AND = {
 			check_variable = { which = st_minerals_desired value = 5000 }
 			resource_stockpile_compare = { resource = minerals value < 4000 }
 		}
@@ -138,6 +163,10 @@ st_minerals_gap_large = {
 st_minerals_gap_medium = {
 	check_variable = { which = st_minerals_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_minerals_desired value = 10000 }
+			resource_stockpile_compare = { resource = minerals value < 9500 }
+		}
 		AND = {
 			check_variable = { which = st_minerals_desired value = 5000 }
 			resource_stockpile_compare = { resource = minerals value < 4500 }
@@ -156,6 +185,10 @@ st_minerals_gap_medium = {
 st_minerals_has_deficit = {
 	check_variable = { which = st_minerals_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_minerals_desired value = 10000 }
+			resource_stockpile_compare = { resource = minerals value < 10000 }
+		}
 		AND = {
 			check_variable = { which = st_minerals_desired value = 5000 }
 			resource_stockpile_compare = { resource = minerals value < 5000 }
@@ -187,6 +220,10 @@ st_food_gap_critical = {
 	check_variable = { which = st_food_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_food_desired value = 10000 }
+			resource_stockpile_compare = { resource = food value < 8000 }
+		}
+		AND = {
 			check_variable = { which = st_food_desired value = 5000 }
 			resource_stockpile_compare = { resource = food value < 3000 }
 		}
@@ -201,6 +238,10 @@ st_food_gap_large = {
 	check_variable = { which = st_food_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_food_desired value = 10000 }
+			resource_stockpile_compare = { resource = food value < 9000 }
+		}
+		AND = {
 			check_variable = { which = st_food_desired value = 5000 }
 			resource_stockpile_compare = { resource = food value < 4000 }
 		}
@@ -214,6 +255,10 @@ st_food_gap_large = {
 st_food_gap_medium = {
 	check_variable = { which = st_food_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_food_desired value = 10000 }
+			resource_stockpile_compare = { resource = food value < 9500 }
+		}
 		AND = {
 			check_variable = { which = st_food_desired value = 5000 }
 			resource_stockpile_compare = { resource = food value < 4500 }
@@ -232,6 +277,10 @@ st_food_gap_medium = {
 st_food_has_deficit = {
 	check_variable = { which = st_food_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_food_desired value = 10000 }
+			resource_stockpile_compare = { resource = food value < 10000 }
+		}
 		AND = {
 			check_variable = { which = st_food_desired value = 5000 }
 			resource_stockpile_compare = { resource = food value < 5000 }
@@ -263,6 +312,10 @@ st_consumer_goods_gap_critical = {
 	check_variable = { which = st_consumer_goods_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 10000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 8000 }
+		}
+		AND = {
 			check_variable = { which = st_consumer_goods_desired value = 5000 }
 			resource_stockpile_compare = { resource = consumer_goods value < 3000 }
 		}
@@ -277,6 +330,10 @@ st_consumer_goods_gap_large = {
 	check_variable = { which = st_consumer_goods_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 10000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 9000 }
+		}
+		AND = {
 			check_variable = { which = st_consumer_goods_desired value = 5000 }
 			resource_stockpile_compare = { resource = consumer_goods value < 4000 }
 		}
@@ -290,6 +347,10 @@ st_consumer_goods_gap_large = {
 st_consumer_goods_gap_medium = {
 	check_variable = { which = st_consumer_goods_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 10000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 9500 }
+		}
 		AND = {
 			check_variable = { which = st_consumer_goods_desired value = 5000 }
 			resource_stockpile_compare = { resource = consumer_goods value < 4500 }
@@ -308,6 +369,10 @@ st_consumer_goods_gap_medium = {
 st_consumer_goods_has_deficit = {
 	check_variable = { which = st_consumer_goods_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_consumer_goods_desired value = 10000 }
+			resource_stockpile_compare = { resource = consumer_goods value < 10000 }
+		}
 		AND = {
 			check_variable = { which = st_consumer_goods_desired value = 5000 }
 			resource_stockpile_compare = { resource = consumer_goods value < 5000 }
@@ -339,6 +404,10 @@ st_alloys_gap_critical = {
 	check_variable = { which = st_alloys_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_alloys_desired value = 10000 }
+			resource_stockpile_compare = { resource = alloys value < 8000 }
+		}
+		AND = {
 			check_variable = { which = st_alloys_desired value = 5000 }
 			resource_stockpile_compare = { resource = alloys value < 3000 }
 		}
@@ -353,6 +422,10 @@ st_alloys_gap_large = {
 	check_variable = { which = st_alloys_enabled value >= 1 }
 	OR = {
 		AND = {
+			check_variable = { which = st_alloys_desired value = 10000 }
+			resource_stockpile_compare = { resource = alloys value < 9000 }
+		}
+		AND = {
 			check_variable = { which = st_alloys_desired value = 5000 }
 			resource_stockpile_compare = { resource = alloys value < 4000 }
 		}
@@ -366,6 +439,10 @@ st_alloys_gap_large = {
 st_alloys_gap_medium = {
 	check_variable = { which = st_alloys_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_alloys_desired value = 10000 }
+			resource_stockpile_compare = { resource = alloys value < 9500 }
+		}
 		AND = {
 			check_variable = { which = st_alloys_desired value = 5000 }
 			resource_stockpile_compare = { resource = alloys value < 4500 }
@@ -384,6 +461,10 @@ st_alloys_gap_medium = {
 st_alloys_has_deficit = {
 	check_variable = { which = st_alloys_enabled value >= 1 }
 	OR = {
+		AND = {
+			check_variable = { which = st_alloys_desired value = 10000 }
+			resource_stockpile_compare = { resource = alloys value < 10000 }
+		}
 		AND = {
 			check_variable = { which = st_alloys_desired value = 5000 }
 			resource_stockpile_compare = { resource = alloys value < 5000 }

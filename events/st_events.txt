@@ -226,6 +226,17 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = st_events.115
+	title = st_event_115_title
+	desc = st_event_115_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_115_ok
+	}
+}
+
 # Energy Max: 2500
 country_event = {
 	id = st_events.120
@@ -395,6 +406,17 @@ country_event = {
 
 	option = {
 		name = st_event_214_ok
+	}
+}
+
+country_event = {
+	id = st_events.215
+	title = st_event_215_title
+	desc = st_event_215_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_215_ok
 	}
 }
 
@@ -570,6 +592,17 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = st_events.315
+	title = st_event_315_title
+	desc = st_event_315_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_315_ok
+	}
+}
+
 # Food Max: 2500
 country_event = {
 	id = st_events.320
@@ -742,6 +775,17 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = st_events.415
+	title = st_event_415_title
+	desc = st_event_415_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_415_ok
+	}
+}
+
 # Consumer Goods Max: 2500
 country_event = {
 	id = st_events.420
@@ -911,6 +955,17 @@ country_event = {
 
 	option = {
 		name = st_event_514_ok
+	}
+}
+
+country_event = {
+	id = st_events.515
+	title = st_event_515_title
+	desc = st_event_515_desc
+	is_triggered_only = yes
+
+	option = {
+		name = st_event_515_ok
 	}
 }
 
