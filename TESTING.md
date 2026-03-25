@@ -25,11 +25,13 @@ add_time months 1                                # advance 1 month
 
 | Resource | Sell (per unit to TV) | Buy (TV per unit) | Buy Chunk | TV per Chunk |
 |----------|----------------------|-------------------|-----------|-------------|
-| Energy | 0.85 | 1.18 | 200 units | 236 TV |
-| Minerals | 0.85 | 1.18 | 200 units | 236 TV |
-| Food | 0.85 | 1.18 | 200 units | 236 TV |
-| Consumer Goods | 1.70 | 2.35 | 100 units | 235 TV |
-| Alloys | 3.40 | 4.71 | 50 units | 236 TV |
+| Energy | 1.00 | 1.00 | 200 units | 200 TV |
+| Minerals | 1.00 | 1.00 | 200 units | 200 TV |
+| Food | 1.00 | 1.00 | 200 units | 200 TV |
+| Consumer Goods | 2.00 | 2.00 | 100 units | 200 TV |
+| Alloys | 4.00 | 4.00 | 50 units | 200 TV |
+
+> **Note:** Tax system is currently disabled. All conversions are at base market rates with no loss.
 
 ## Sell Chunk Progression (per sell effect call)
 
@@ -37,13 +39,13 @@ Graduated chunks fire top-down via non-exclusive `if` blocks. One sell effect ca
 
 | Chunk | Energy/Min/Food TV | CG TV | Alloys TV |
 |-------|--------------------|-------|-----------|
-| 10000 | 8500 | 17000 | 34000 |
-| 5000 | 4250 | 8500 | 17000 |
-| 2000 | 1700 | 3400 | 6800 |
-| 1000 | 850 | 1700 | 3400 |
-| 500 | 425 | 850 | 1700 |
-| 200 | 170 | 340 | 680 |
-| 100 | 85 | 170 | 340 |
+| 10000 | 10000 | 20000 | 40000 |
+| 5000 | 5000 | 10000 | 20000 |
+| 2000 | 2000 | 4000 | 8000 |
+| 1000 | 1000 | 2000 | 4000 |
+| 500 | 500 | 1000 | 2000 |
+| 200 | 200 | 400 | 800 |
+| 100 | 100 | 200 | 400 |
 
 ---
 
@@ -113,25 +115,25 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 ### 2.1 `sell_basic_energy_surplus`
 **Precondition:** Energy=1500, max=1000, TV=0
 **Action:** `event st_events.1`
-**Expected:** Energy=1000. TV=425 (500 x 0.85).
+**Expected:** Energy=1000. TV=500 (500 x 1.0).
 **How it works:** The 500-unit graduated chunk fires at threshold >= 1500.
 
 ### 2.2 `sell_exact_conversion_rate_energy`
 **Precondition:** Energy=2000, max=1000, TV=0
 **Action:** `event st_events.1`
-**Expected:** Energy=1000. TV=850 (1000 x 0.85). Verify exact value, no rounding error.
+**Expected:** Energy=1000. TV=1000 (1000 x 1.0). Verify exact value, no rounding error.
 **How it works:** The 1000-unit graduated chunk fires at threshold >= 2000.
 
 ### 2.3 `sell_alloys_at_higher_rate`
 **Precondition:** Alloys=1100, max=1000, TV=0
 **Action:** `event st_events.1`
-**Expected:** Alloys=1000. TV=340 (100 x 3.40). Confirms 4x energy rate.
+**Expected:** Alloys=1000. TV=400 (100 x 4.0). Confirms 4x energy rate.
 **How it works:** The 100-unit graduated chunk fires at threshold >= 1100.
 
 ### 2.4 `sell_consumer_goods_at_double_rate`
 **Precondition:** CG=1500, max=1000, TV=0
 **Action:** `event st_events.1`
-**Expected:** CG=1000. TV=850 (500 x 1.70). Confirms 2x energy rate.
+**Expected:** CG=1000. TV=1000 (500 x 2.0). Confirms 2x energy rate.
 
 ### 2.5 `no_sell_when_at_max`
 **Precondition:** Energy=1000 (exactly at max=1000), TV=0
@@ -146,12 +148,12 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 ### 2.7 `sell_multiple_resources_simultaneously`
 **Precondition:** Energy=1500 (max=1000), Minerals=1200 (max=1000), Alloys=1100 (max=1000), TV=0
 **Action:** `event st_events.1`
-**Expected:** All three at 1000. TV = 425 + 170 + 340 = 935.
+**Expected:** All three at 1000. TV = 500 + 200 + 400 = 1100.
 
 ### 2.8 `sell_extremely_high_stockpile`
 **Precondition:** Energy=50000, max=1000, TV=0
 **Action:** `event st_events.1`
-**Expected:** Energy=1000. TV=41650 (49000 x 0.85). Confirms no sell cap.
+**Expected:** Energy=1000. TV=49000 (49000 x 1.0). Confirms no sell cap.
 **How it works:** 5 iterations of `st_sell_all_surplus`, each draining graduated chunks. Fully drains in ~4 iterations.
 
 ---
@@ -161,17 +163,17 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 ### 3.1 `buy_basic_energy_deficit`
 **Precondition:** Energy=0, desired=1000, TV=500
 **Action:** `event st_events.1`
-**Expected:** 2 buy iterations (2 x 236 = 472 TV). Energy=400. TV=28.
+**Expected:** 2 buy iterations (2 x 200 = 400 TV). Energy=400. TV=100.
 
 ### 3.2 `buy_exact_conversion_rate`
-**Precondition:** Energy=0, desired=1000, TV=236 (exactly 1 chunk)
+**Precondition:** Energy=0, desired=1000, TV=200 (exactly 1 chunk)
 **Action:** `event st_events.1`
 **Expected:** Energy=200. TV=0.
 
 ### 3.3 `buy_alloys_at_higher_cost`
 **Precondition:** Alloys=0, desired=500, TV=500
 **Action:** `event st_events.1`
-**Expected:** 2 buy iterations (50 alloys each, 236 TV each). Alloys=100. TV=28.
+**Expected:** 2 buy iterations (50 alloys each, 200 TV each). Alloys=100. TV=100.
 
 ### 3.4 `no_buy_when_at_desired`
 **Precondition:** Energy=500 (exactly at desired=500), TV=1000
@@ -184,36 +186,36 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 **Expected:** Energy=0. TV=0. No negatives.
 
 ### 3.6 `partial_buy_insufficient_trade`
-**Precondition:** Energy=0, desired=1000, TV=100 (less than half chunk of 118)
+**Precondition:** Energy=0, desired=1000, TV=100 (less than half chunk of 100)
 **Action:** `event st_events.1`
 **Expected:** Energy=0. TV=100. Insufficient TV for even a half chunk.
 
 ### 3.7 `buy_caps_at_five_iterations`
 **Precondition:** Energy=0, desired=5000, TV=2000 (enough for 8 chunks but capped at 5)
 **Action:** `event st_events.1`
-**Expected:** Energy=1000 (5 x 200). TV=820 (2000 - 5 x 236).
+**Expected:** Energy=1000 (5 x 200). TV=1000 (2000 - 5 x 200).
 
 ---
 
 ## Category 4: Gap Priority (8 tests)
 
 ### 4.1 `larger_gap_filled_first`
-**Precondition:** Energy=200 (gap=800, Medium band), Minerals=0 (gap=1000, Large band). Both desired=1000. TV=472 (2 chunks).
+**Precondition:** Energy=200 (gap=800, Medium band), Minerals=0 (gap=1000, Large band). Both desired=1000. TV=400 (2 chunks).
 **Action:** `event st_events.1`
 **Expected:** Minerals gets both chunks (Large > Medium). Minerals=400. Energy=200. TV=0.
 
 ### 4.2 `tiebreaker_alloys_over_minerals`
-**Precondition:** Alloys=0 (gap=500), Minerals=0 (gap=500). Both desired=500. Same gap band. TV=472 (2 chunks).
+**Precondition:** Alloys=0 (gap=500), Minerals=0 (gap=500). Both desired=500. Same gap band. TV=400 (2 chunks).
 **Action:** `event st_events.1`
 **Expected:** Alloys gets both (tiebreaker: Alloys > Minerals). Alloys=100. Minerals=0. TV=0.
 
 ### 4.3 `tiebreaker_consumer_goods_over_food`
-**Precondition:** CG=0 (gap=500), Food=0 (gap=500). Both desired=500. TV=472.
+**Precondition:** CG=0 (gap=500), Food=0 (gap=500). Both desired=500. TV=400.
 **Action:** `event st_events.1`
 **Expected:** CG gets priority (tiebreaker: CG > Food).
 
 ### 4.4 `critical_band_monopolizes_iterations`
-**Precondition:** Energy=0 (gap=5000, Critical), Minerals=0 (gap=500, Medium). Energy desired=5000, Minerals desired=500. TV=1180 (5 chunks).
+**Precondition:** Energy=0 (gap=5000, Critical), Minerals=0 (gap=500, Medium). Energy desired=5000, Minerals desired=500. TV=1000 (5 chunks).
 **Action:** `event st_events.1`
 **Expected:** Energy gets all 5 iterations (Critical > Medium). Energy=1000. Minerals=0. TV=0.
 
@@ -223,7 +225,7 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 **Expected:** Iteration 1: Energy (Critical band, gap=2100). After buy, Energy=600, gap=1900 (drops to Large). Iteration 2+: both in Large band, tiebreaker applies. Trace all 5 iterations.
 
 ### 4.6 `small_gap_starved_by_large_gap`
-**Precondition:** Energy=0 (gap=5000, Critical), Food=100 (gap=500, Medium). TV=1180 (5 chunks).
+**Precondition:** Energy=0 (gap=5000, Critical), Food=100 (gap=500, Medium). TV=1000 (5 chunks).
 **Action:** `event st_events.1`
 **Expected:** Energy gets all 5. Food gets nothing.
 
@@ -244,7 +246,7 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 ### 5.1 `sell_to_max_respects_min`
 **Precondition:** Energy=1500, min=800, desired=900, max=1000
 **Action:** `event st_events.1`
-**Expected:** Energy=1000 (max). Min (800) not breached since max > min. TV=425.
+**Expected:** Energy=1000 (max). Min (800) not breached since max > min. TV=500.
 
 ### 5.2 `invalid_config_min_above_max`
 **Precondition:** Via console: `st_energy_min = 500`, `st_energy_max = 300`. Energy=1000.
@@ -264,7 +266,7 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 ### 5.5 `min_equals_desired`
 **Precondition:** `st_energy_min = 500`, `st_energy_desired = 500`, `st_energy_max = 2500`. Energy=3000.
 **Action:** `event st_events.1`
-**Expected:** Energy=2500 (sells to max). No buy triggered (already at desired=500, stockpile 2500 > 500). TV=425.
+**Expected:** Energy=2500 (sells to max). No buy triggered (already at desired=500, stockpile 2500 > 500). TV=500.
 
 ---
 
@@ -318,8 +320,8 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 **Precondition:** Energy=2000 (max=1000). Minerals=0 (desired=1000). TV=0.
 **Action:** `event st_events.1`
 **Expected:**
-- Sell: 1000 energy -> 850 TV. Energy=1000.
-- Buy: 3 chunks of minerals (3 x 236 = 708 TV). Minerals=600. TV=142.
+- Sell: 1000 energy -> 1000 TV. Energy=1000.
+- Buy: 3 chunks of minerals (3 x 200 = 600 TV). Minerals=600. TV=400.
 
 ### 7.2 `multi_month_convergence`
 **Precondition:** Energy=5000 (max=2000). Minerals=0 (desired=2000). TV=0.
@@ -328,16 +330,16 @@ Then set resource-specific variables/stockpiles per the test preconditions.
 
 ### 7.3 `all_five_resources_different_configs`
 **Precondition:**
-- Energy=2000, max=1000 (sells 1000, +850 TV)
+- Energy=2000, max=1000 (sells 1000, +1000 TV)
 - Minerals=200, desired=800 (deficit 600, Medium band)
-- Food=1000, max=500 (sells 500, +425 TV)
+- Food=1000, max=500 (sells 500, +500 TV)
 - CG=0, desired=600 (deficit 600, Medium band — but 600 is not a valid tier, use desired=500 or 1000)
-- Alloys=3000, max=2000 (sells 1000, +3400 TV)
+- Alloys=3000, max=2000 (sells 1000, +4000 TV)
 - TV=0
 
 **Action:** `event st_events.1`
 **Expected:**
-- Total TV from sells: 850 + 425 + 3400 = 4675
+- Total TV from sells: 1000 + 500 + 4000 = 5500
 - Buy phase: 5 iterations distributed by gap priority among minerals and CG
 - Trace each iteration
 
