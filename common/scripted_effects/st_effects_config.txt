@@ -1,0 +1,408 @@
+# st_effects_config.txt
+# Surplus Trade mod — configuration cycling effects
+# Each resource has three cycling effects (min, desired, max) that advance the
+# corresponding threshold variable to the next tier and fire the matching event.
+#
+# Min cycles:     0 -> 100 -> 200 -> 500 -> 0
+# Desired cycles: 200 -> 500 -> 1000 -> 2500 -> 5000 -> 200
+# Max cycles:     1000 -> 2500 -> 5000 -> 10000 -> 99999 -> 1000
+
+# ============================================================
+# ENERGY  (event IDs: min 100-103, desired 110-114, max 120-124)
+# ============================================================
+
+st_cycle_energy_min = {
+	if = {
+		limit = { check_variable = { which = st_energy_min value < 100 } }
+		set_variable = { which = st_energy_min value = 100 }
+		country_event = { id = st_events.100 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_min value < 200 } }
+		set_variable = { which = st_energy_min value = 200 }
+		country_event = { id = st_events.101 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_min value < 500 } }
+		set_variable = { which = st_energy_min value = 500 }
+		country_event = { id = st_events.102 }
+	}
+	else = {
+		set_variable = { which = st_energy_min value = 0 }
+		country_event = { id = st_events.103 }
+	}
+}
+
+st_cycle_energy_desired = {
+	if = {
+		limit = { check_variable = { which = st_energy_desired value < 500 } }
+		set_variable = { which = st_energy_desired value = 500 }
+		country_event = { id = st_events.110 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_desired value < 1000 } }
+		set_variable = { which = st_energy_desired value = 1000 }
+		country_event = { id = st_events.111 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_desired value < 2500 } }
+		set_variable = { which = st_energy_desired value = 2500 }
+		country_event = { id = st_events.112 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_desired value < 5000 } }
+		set_variable = { which = st_energy_desired value = 5000 }
+		country_event = { id = st_events.113 }
+	}
+	else = {
+		set_variable = { which = st_energy_desired value = 200 }
+		country_event = { id = st_events.114 }
+	}
+}
+
+st_cycle_energy_max = {
+	if = {
+		limit = { check_variable = { which = st_energy_max value < 2500 } }
+		set_variable = { which = st_energy_max value = 2500 }
+		country_event = { id = st_events.120 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_max value < 5000 } }
+		set_variable = { which = st_energy_max value = 5000 }
+		country_event = { id = st_events.121 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_max value < 10000 } }
+		set_variable = { which = st_energy_max value = 10000 }
+		country_event = { id = st_events.122 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_energy_max value < 99999 } }
+		set_variable = { which = st_energy_max value = 99999 }
+		country_event = { id = st_events.123 }
+	}
+	else = {
+		set_variable = { which = st_energy_max value = 1000 }
+		country_event = { id = st_events.124 }
+	}
+}
+
+# ============================================================
+# MINERALS  (event IDs: min 200-203, desired 210-214, max 220-224)
+# ============================================================
+
+st_cycle_minerals_min = {
+	if = {
+		limit = { check_variable = { which = st_minerals_min value < 100 } }
+		set_variable = { which = st_minerals_min value = 100 }
+		country_event = { id = st_events.200 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_min value < 200 } }
+		set_variable = { which = st_minerals_min value = 200 }
+		country_event = { id = st_events.201 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_min value < 500 } }
+		set_variable = { which = st_minerals_min value = 500 }
+		country_event = { id = st_events.202 }
+	}
+	else = {
+		set_variable = { which = st_minerals_min value = 0 }
+		country_event = { id = st_events.203 }
+	}
+}
+
+st_cycle_minerals_desired = {
+	if = {
+		limit = { check_variable = { which = st_minerals_desired value < 500 } }
+		set_variable = { which = st_minerals_desired value = 500 }
+		country_event = { id = st_events.210 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_desired value < 1000 } }
+		set_variable = { which = st_minerals_desired value = 1000 }
+		country_event = { id = st_events.211 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_desired value < 2500 } }
+		set_variable = { which = st_minerals_desired value = 2500 }
+		country_event = { id = st_events.212 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_desired value < 5000 } }
+		set_variable = { which = st_minerals_desired value = 5000 }
+		country_event = { id = st_events.213 }
+	}
+	else = {
+		set_variable = { which = st_minerals_desired value = 200 }
+		country_event = { id = st_events.214 }
+	}
+}
+
+st_cycle_minerals_max = {
+	if = {
+		limit = { check_variable = { which = st_minerals_max value < 2500 } }
+		set_variable = { which = st_minerals_max value = 2500 }
+		country_event = { id = st_events.220 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_max value < 5000 } }
+		set_variable = { which = st_minerals_max value = 5000 }
+		country_event = { id = st_events.221 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_max value < 10000 } }
+		set_variable = { which = st_minerals_max value = 10000 }
+		country_event = { id = st_events.222 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_minerals_max value < 99999 } }
+		set_variable = { which = st_minerals_max value = 99999 }
+		country_event = { id = st_events.223 }
+	}
+	else = {
+		set_variable = { which = st_minerals_max value = 1000 }
+		country_event = { id = st_events.224 }
+	}
+}
+
+# ============================================================
+# FOOD  (event IDs: min 300-303, desired 310-314, max 320-324)
+# ============================================================
+
+st_cycle_food_min = {
+	if = {
+		limit = { check_variable = { which = st_food_min value < 100 } }
+		set_variable = { which = st_food_min value = 100 }
+		country_event = { id = st_events.300 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_min value < 200 } }
+		set_variable = { which = st_food_min value = 200 }
+		country_event = { id = st_events.301 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_min value < 500 } }
+		set_variable = { which = st_food_min value = 500 }
+		country_event = { id = st_events.302 }
+	}
+	else = {
+		set_variable = { which = st_food_min value = 0 }
+		country_event = { id = st_events.303 }
+	}
+}
+
+st_cycle_food_desired = {
+	if = {
+		limit = { check_variable = { which = st_food_desired value < 500 } }
+		set_variable = { which = st_food_desired value = 500 }
+		country_event = { id = st_events.310 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_desired value < 1000 } }
+		set_variable = { which = st_food_desired value = 1000 }
+		country_event = { id = st_events.311 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_desired value < 2500 } }
+		set_variable = { which = st_food_desired value = 2500 }
+		country_event = { id = st_events.312 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_desired value < 5000 } }
+		set_variable = { which = st_food_desired value = 5000 }
+		country_event = { id = st_events.313 }
+	}
+	else = {
+		set_variable = { which = st_food_desired value = 200 }
+		country_event = { id = st_events.314 }
+	}
+}
+
+st_cycle_food_max = {
+	if = {
+		limit = { check_variable = { which = st_food_max value < 2500 } }
+		set_variable = { which = st_food_max value = 2500 }
+		country_event = { id = st_events.320 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_max value < 5000 } }
+		set_variable = { which = st_food_max value = 5000 }
+		country_event = { id = st_events.321 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_max value < 10000 } }
+		set_variable = { which = st_food_max value = 10000 }
+		country_event = { id = st_events.322 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_food_max value < 99999 } }
+		set_variable = { which = st_food_max value = 99999 }
+		country_event = { id = st_events.323 }
+	}
+	else = {
+		set_variable = { which = st_food_max value = 1000 }
+		country_event = { id = st_events.324 }
+	}
+}
+
+# ============================================================
+# CONSUMER GOODS  (event IDs: min 400-403, desired 410-414, max 420-424)
+# ============================================================
+
+st_cycle_consumer_goods_min = {
+	if = {
+		limit = { check_variable = { which = st_consumer_goods_min value < 100 } }
+		set_variable = { which = st_consumer_goods_min value = 100 }
+		country_event = { id = st_events.400 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_min value < 200 } }
+		set_variable = { which = st_consumer_goods_min value = 200 }
+		country_event = { id = st_events.401 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_min value < 500 } }
+		set_variable = { which = st_consumer_goods_min value = 500 }
+		country_event = { id = st_events.402 }
+	}
+	else = {
+		set_variable = { which = st_consumer_goods_min value = 0 }
+		country_event = { id = st_events.403 }
+	}
+}
+
+st_cycle_consumer_goods_desired = {
+	if = {
+		limit = { check_variable = { which = st_consumer_goods_desired value < 500 } }
+		set_variable = { which = st_consumer_goods_desired value = 500 }
+		country_event = { id = st_events.410 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_desired value < 1000 } }
+		set_variable = { which = st_consumer_goods_desired value = 1000 }
+		country_event = { id = st_events.411 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_desired value < 2500 } }
+		set_variable = { which = st_consumer_goods_desired value = 2500 }
+		country_event = { id = st_events.412 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_desired value < 5000 } }
+		set_variable = { which = st_consumer_goods_desired value = 5000 }
+		country_event = { id = st_events.413 }
+	}
+	else = {
+		set_variable = { which = st_consumer_goods_desired value = 200 }
+		country_event = { id = st_events.414 }
+	}
+}
+
+st_cycle_consumer_goods_max = {
+	if = {
+		limit = { check_variable = { which = st_consumer_goods_max value < 2500 } }
+		set_variable = { which = st_consumer_goods_max value = 2500 }
+		country_event = { id = st_events.420 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_max value < 5000 } }
+		set_variable = { which = st_consumer_goods_max value = 5000 }
+		country_event = { id = st_events.421 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_max value < 10000 } }
+		set_variable = { which = st_consumer_goods_max value = 10000 }
+		country_event = { id = st_events.422 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_consumer_goods_max value < 99999 } }
+		set_variable = { which = st_consumer_goods_max value = 99999 }
+		country_event = { id = st_events.423 }
+	}
+	else = {
+		set_variable = { which = st_consumer_goods_max value = 1000 }
+		country_event = { id = st_events.424 }
+	}
+}
+
+# ============================================================
+# ALLOYS  (event IDs: min 500-503, desired 510-514, max 520-524)
+# ============================================================
+
+st_cycle_alloys_min = {
+	if = {
+		limit = { check_variable = { which = st_alloys_min value < 100 } }
+		set_variable = { which = st_alloys_min value = 100 }
+		country_event = { id = st_events.500 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_min value < 200 } }
+		set_variable = { which = st_alloys_min value = 200 }
+		country_event = { id = st_events.501 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_min value < 500 } }
+		set_variable = { which = st_alloys_min value = 500 }
+		country_event = { id = st_events.502 }
+	}
+	else = {
+		set_variable = { which = st_alloys_min value = 0 }
+		country_event = { id = st_events.503 }
+	}
+}
+
+st_cycle_alloys_desired = {
+	if = {
+		limit = { check_variable = { which = st_alloys_desired value < 500 } }
+		set_variable = { which = st_alloys_desired value = 500 }
+		country_event = { id = st_events.510 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_desired value < 1000 } }
+		set_variable = { which = st_alloys_desired value = 1000 }
+		country_event = { id = st_events.511 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_desired value < 2500 } }
+		set_variable = { which = st_alloys_desired value = 2500 }
+		country_event = { id = st_events.512 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_desired value < 5000 } }
+		set_variable = { which = st_alloys_desired value = 5000 }
+		country_event = { id = st_events.513 }
+	}
+	else = {
+		set_variable = { which = st_alloys_desired value = 200 }
+		country_event = { id = st_events.514 }
+	}
+}
+
+st_cycle_alloys_max = {
+	if = {
+		limit = { check_variable = { which = st_alloys_max value < 2500 } }
+		set_variable = { which = st_alloys_max value = 2500 }
+		country_event = { id = st_events.520 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_max value < 5000 } }
+		set_variable = { which = st_alloys_max value = 5000 }
+		country_event = { id = st_events.521 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_max value < 10000 } }
+		set_variable = { which = st_alloys_max value = 10000 }
+		country_event = { id = st_events.522 }
+	}
+	else_if = {
+		limit = { check_variable = { which = st_alloys_max value < 99999 } }
+		set_variable = { which = st_alloys_max value = 99999 }
+		country_event = { id = st_events.523 }
+	}
+	else = {
+		set_variable = { which = st_alloys_max value = 1000 }
+		country_event = { id = st_events.524 }
+	}
+}
