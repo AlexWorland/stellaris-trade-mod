@@ -1,0 +1,235 @@
+# Surplus Trade — Downstream Scripted Effects
+# Chunk-based purchasing and gap-band priority buy cycle.
+#
+# Gap-band priority (highest to lowest):
+#   Critical  — gap > 2000  (stockpile well below desired)
+#   Large     — gap > 1000
+#   Medium    — gap > 500
+#   Any deficit — stockpile < desired
+#
+# Within each band, tiebreaker order is:
+#   Alloys > Consumer Goods > Minerals > Food > Energy
+#
+# st_buy_cycle is called 5× per monthly event to allow multiple resources
+# to be bought in a single month. Each call buys at most ONE chunk for ONE
+# resource (the highest-priority one that meets the threshold).
+#
+# Chunk sizes and TV costs:
+#   Resource        | Full chunk | TV cost | Half chunk | TV cost
+#   ----------------|------------|---------|------------|--------
+#   Energy          |    200     |   236   |    100     |   118
+#   Minerals        |    200     |   236   |    100     |   118
+#   Food            |    200     |   236   |    100     |   118
+#   Consumer Goods  |    100     |   235   |     50     |   118
+#   Alloys          |     50     |   236   |     25     |   118
+
+# ============================================================
+# Buy Chunk Effects
+# ============================================================
+
+# Try to buy 200 energy (236 TV), fall back to 100 energy (118 TV).
+st_buy_energy_chunk = {
+	# Full chunk: 200 energy for 236 TV
+	if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 236 }
+		}
+		add_resource = { trade_value = -236 }
+		add_resource = { energy = 200 }
+	}
+	# Half chunk: 100 energy for 118 TV
+	else_if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 118 }
+		}
+		add_resource = { trade_value = -118 }
+		add_resource = { energy = 100 }
+	}
+}
+
+# Try to buy 200 minerals (236 TV), fall back to 100 minerals (118 TV).
+st_buy_minerals_chunk = {
+	# Full chunk: 200 minerals for 236 TV
+	if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 236 }
+		}
+		add_resource = { trade_value = -236 }
+		add_resource = { minerals = 200 }
+	}
+	# Half chunk: 100 minerals for 118 TV
+	else_if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 118 }
+		}
+		add_resource = { trade_value = -118 }
+		add_resource = { minerals = 100 }
+	}
+}
+
+# Try to buy 200 food (236 TV), fall back to 100 food (118 TV).
+st_buy_food_chunk = {
+	# Full chunk: 200 food for 236 TV
+	if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 236 }
+		}
+		add_resource = { trade_value = -236 }
+		add_resource = { food = 200 }
+	}
+	# Half chunk: 100 food for 118 TV
+	else_if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 118 }
+		}
+		add_resource = { trade_value = -118 }
+		add_resource = { food = 100 }
+	}
+}
+
+# Try to buy 100 consumer goods (235 TV), fall back to 50 consumer goods (118 TV).
+st_buy_consumer_goods_chunk = {
+	# Full chunk: 100 consumer goods for 235 TV
+	if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 235 }
+		}
+		add_resource = { trade_value = -235 }
+		add_resource = { consumer_goods = 100 }
+	}
+	# Half chunk: 50 consumer goods for 118 TV
+	else_if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 118 }
+		}
+		add_resource = { trade_value = -118 }
+		add_resource = { consumer_goods = 50 }
+	}
+}
+
+# Try to buy 50 alloys (236 TV), fall back to 25 alloys (118 TV).
+st_buy_alloys_chunk = {
+	# Full chunk: 50 alloys for 236 TV
+	if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 236 }
+		}
+		add_resource = { trade_value = -236 }
+		add_resource = { alloys = 50 }
+	}
+	# Half chunk: 25 alloys for 118 TV
+	else_if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 118 }
+		}
+		add_resource = { trade_value = -118 }
+		add_resource = { alloys = 25 }
+	}
+}
+
+# ============================================================
+# Buy Cycle Orchestrator
+# ============================================================
+
+# Select the single highest-priority resource to buy one chunk of.
+# Called 5× per month so different resources can be served across calls.
+#
+# Priority: gap band (critical > large > medium > any deficit),
+# then tiebreaker within band: alloys > consumer_goods > minerals > food > energy.
+st_buy_cycle = {
+	# Only proceed if there is enough Trade Value to buy at least a half chunk.
+	if = {
+		limit = {
+			resource_stockpile_compare = { resource = trade_value value >= 118 }
+		}
+
+		# ── Band: Critical (gap > 2000) ──
+		# Tiebreaker: alloys > consumer_goods > minerals > food > energy
+		if = {
+			limit = { st_alloys_gap_critical = yes }
+			st_buy_alloys_chunk = yes
+		}
+		else_if = {
+			limit = { st_consumer_goods_gap_critical = yes }
+			st_buy_consumer_goods_chunk = yes
+		}
+		else_if = {
+			limit = { st_minerals_gap_critical = yes }
+			st_buy_minerals_chunk = yes
+		}
+		else_if = {
+			limit = { st_food_gap_critical = yes }
+			st_buy_food_chunk = yes
+		}
+		else_if = {
+			limit = { st_energy_gap_critical = yes }
+			st_buy_energy_chunk = yes
+		}
+
+		# ── Band: Large (gap > 1000) ──
+		else_if = {
+			limit = { st_alloys_gap_large = yes }
+			st_buy_alloys_chunk = yes
+		}
+		else_if = {
+			limit = { st_consumer_goods_gap_large = yes }
+			st_buy_consumer_goods_chunk = yes
+		}
+		else_if = {
+			limit = { st_minerals_gap_large = yes }
+			st_buy_minerals_chunk = yes
+		}
+		else_if = {
+			limit = { st_food_gap_large = yes }
+			st_buy_food_chunk = yes
+		}
+		else_if = {
+			limit = { st_energy_gap_large = yes }
+			st_buy_energy_chunk = yes
+		}
+
+		# ── Band: Medium (gap > 500) ──
+		else_if = {
+			limit = { st_alloys_gap_medium = yes }
+			st_buy_alloys_chunk = yes
+		}
+		else_if = {
+			limit = { st_consumer_goods_gap_medium = yes }
+			st_buy_consumer_goods_chunk = yes
+		}
+		else_if = {
+			limit = { st_minerals_gap_medium = yes }
+			st_buy_minerals_chunk = yes
+		}
+		else_if = {
+			limit = { st_food_gap_medium = yes }
+			st_buy_food_chunk = yes
+		}
+		else_if = {
+			limit = { st_energy_gap_medium = yes }
+			st_buy_energy_chunk = yes
+		}
+
+		# ── Band: Any deficit (stockpile < desired) ──
+		else_if = {
+			limit = { st_alloys_has_deficit = yes }
+			st_buy_alloys_chunk = yes
+		}
+		else_if = {
+			limit = { st_consumer_goods_has_deficit = yes }
+			st_buy_consumer_goods_chunk = yes
+		}
+		else_if = {
+			limit = { st_minerals_has_deficit = yes }
+			st_buy_minerals_chunk = yes
+		}
+		else_if = {
+			limit = { st_food_has_deficit = yes }
+			st_buy_food_chunk = yes
+		}
+		else_if = {
+			limit = { st_energy_has_deficit = yes }
+			st_buy_energy_chunk = yes
+		}
+	}
+}
